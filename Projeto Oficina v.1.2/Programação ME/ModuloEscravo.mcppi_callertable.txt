@@ -1,0 +1,34 @@
+main
+	__CC2DW
+	UART1_Init
+	gerencia_alarme
+		ADC_Read
+			Delay_22us
+		Word2Double
+			NRM3232
+				RES032
+				SETFUN32
+				FIXSIGN32
+		Compare_Double
+	iluminacao_automatizada
+		ADC_Read
+			Delay_22us
+		Word2Double
+			NRM3232
+				RES032
+				SETFUN32
+				FIXSIGN32
+		Compare_Double
+interrupt_low
+	lerProtocolo
+		UART1_Data_Ready
+		UART1_Read
+		UART1_Read_Text
+			UART1_Data_Ready
+			UART1_Read
+		executarProtocolo
+			respondeProtocolo
+				UART1_Write
+			servoRotate0
+			servoRotate90
+interrupt
